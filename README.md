@@ -1,6 +1,6 @@
 # Physics-guided residual learning for UAV trajectory prediction
 
-This repository contains the code, final figures, and result tables for a journal submission on multi-step UAV trajectory prediction. The project evaluates a hybrid physics-informed residual-correction model against three baseline variants: a standalone physics-based rollout, an LSTM model, and an MLP fusion model.
+This repository contains the code, final figures, and result tables for a journal submission on multi-step UAV trajectory prediction. The project evaluates a hybrid physics-guided residual-correction model against three baseline variants: a standalone physics-based rollout, an LSTM model, and an MLP fusion model.
 
 The main idea is to use the physics-based prediction as a structured trajectory prior and then learn a data-driven residual correction. This allows the final model to retain useful physical guidance while compensating for drift, phase-transition effects, and unmodeled disturbances in real UAV telemetry.
 
@@ -11,15 +11,15 @@ This is a lightweight sharing package for journal review. It includes the essent
 ```text
 .
 |-- src/
-|   |-- lstm_unified_nohyp.py
+|   |-- lstm_unified.py
 |   |-- Physics_model.py
 |   |-- MLP.py
-|   `-- PIML_2.py
+|   `-- PIML.py
 |-- figures/
-|-- results/
+|-- results
 |   |-- metrics/
-|   |-- run_info_piml2_v12.json
-|   `-- piml_2_model_summary.csv
+|   |-- run_info_piml_v12.json
+|   `-- piml_summary.csv
 |-- data/
 |   `-- README.md
 |-- docs/
@@ -33,9 +33,9 @@ This is a lightweight sharing package for journal review. It includes the essent
 ## Model Variants
 
 - `Physics_model.py`: analytical physics-based trajectory rollout.
-- `lstm_unified_nohyp.py`: LSTM-only data-driven sequence prediction model.
+- `lstm_unified.py`: LSTM-only data-driven sequence prediction model.
 - `MLP.py`: learnable MLP fusion baseline combining physics and LSTM predictions.
-- `PIML_2.py`: proposed physics-informed residual-correction model.
+- `PIML.py`: proposed physics-informed residual-correction model.
 
 ## Key Outputs
 
@@ -64,7 +64,6 @@ Create a Python environment and install the dependencies:
 pip install -r requirements.txt
 ```
 
-The experiments were run with Python 3.12 on CPU. CUDA is optional for PyTorch acceleration.
 
 ## Data Availability
 
