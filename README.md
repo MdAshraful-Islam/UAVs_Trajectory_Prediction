@@ -11,10 +11,11 @@ This is a lightweight sharing package for journal review. It includes the essent
 ```text
 .
 |-- model_pipelines/
-|   |-- lstm_unified.py
-|   |-- Physics_model.py
-|   |-- MLP.py
-|   `-- PIML.py
+|   -- physics_6dof_rk4.py
+|   -- lstm_sr.py
+|   -- mlp_fusion_sr.py
+|   -- pgrl.py
+|   -- physics_model_sr
 |-- figures/
 |-- results
 |   |-- metrics/
