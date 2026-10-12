@@ -1,18 +1,4 @@
-"""mlp_sr.py — SR fusion MLP: best physics (physics_model_sr) + best LSTM (v12).
-
-Single consolidated script:
-  - All trajectories in a local METER frame (LSTM v12 predicts lon/lat degrees +
-    altitude; the WGS84 conversion of physics_model_sr.add_local_meter_frame is
-    applied per flight so metrics are true 3D meters).
-  - Physics input: per-sample physics-SR damped-trend-prior horizon (quadratic
-    fit on the 10 s of real data before each anchor -> phase-scaled damped
-    extrapolation; identical equations to physics_model_sr.simulate_trend_phase).
-  - LSTM input: v12 test horizon artifacts (Lstm_sr_outputs/v12).
-  - Fusion model: MatchedHorizonMLP architecture (H*12 -> 334 -> 167 -> H*3,
-    dropout 0.10, discounted MSE 0.98^i, Adam 1e-3/wd 1e-5), trained as a
-    RESIDUAL head on top of the LSTM horizon (--no-residual to disable).
-  - Outputs versioned like the physics model (mlp_sr_outputs/v1, v2, ...) with
-    the same evaluation files, plot types, and colors as physics_model_sr.
+"""
 
 Usage:
   python3 mlp_sr.py --epochs 12          # train (resumes mlp_sr_outputs/checkpoint.npz)
