@@ -10,7 +10,7 @@ This is a lightweight sharing package for journal review. It includes the essent
 
 ```text
 .
-|-- src/
+|-- model_pipelines/
 |   |-- lstm_unified.py
 |   |-- Physics_model.py
 |   |-- MLP.py
